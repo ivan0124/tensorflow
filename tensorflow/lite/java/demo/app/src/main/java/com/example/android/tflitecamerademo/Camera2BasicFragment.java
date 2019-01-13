@@ -346,7 +346,8 @@ public class Camera2BasicFragment extends Fragment
       // Try to load model.
       try {
         if (model.equals(mobilenetV1Quant)) {
-          classifier = new ImageClassifierQuantizedMobileNet(getActivity());
+          //classifier = new ImageClassifierQuantizedMobileNet(getActivity());
+          classifier = new ImageClassifierFloatMobileNet(getActivity());
         } else if (model.equals(mobilenetV1Float)) {
           classifier = new ImageClassifierFloatMobileNet(getActivity());
         } else {

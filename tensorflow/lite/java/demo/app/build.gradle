@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "android.example.com.tflitecamerademo"
         // Required by Camera2 API.
@@ -12,9 +12,11 @@ android {
         versionName "1.0"
 
         // Remove this block.
+        /*
         jackOptions {
             enabled true
         }
+        */
     }
     lintOptions {
         abortOnError false
@@ -44,6 +46,7 @@ allprojects {
     repositories {
         // Uncomment if you want to use a local repo.
         // mavenLocal()
+        google()
         jcenter()
     }
 }
@@ -115,9 +118,11 @@ task cleanUnusedFiles(type: Delete, dependsOn: ['unzipModelFloat', 'unzipModelQu
 
 
 // Ensure the model file is downloaded and extracted before every build
+/*
 preBuild.dependsOn unzipModelFloat
 preBuild.dependsOn unzipModelQuant
 preBuild.dependsOn cleanUnusedFiles
+*/
 
 class DownloadUrlTask extends DefaultTask {
     @Input
